@@ -1,6 +1,5 @@
 package Gallows;
 
-import java.security.PublicKey;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
@@ -12,7 +11,6 @@ public class Gallows {
     private static final Scanner SCANNER = new Scanner(System.in);
     private static final String START = "1";
     private static final String EXIT = "2";
-    private static Random random = new Random();
 
 
     public static void startMenu() {
@@ -24,7 +22,8 @@ public class Gallows {
         while (true) {
             switch (SCANNER.nextLine()) {
                 case START:
-                    splitWord();
+
+                    getMask(splitWord());
                     System.out.println("Страт игры");
                     break;
                 case EXIT:
@@ -35,14 +34,14 @@ public class Gallows {
                     break;
             }
 
-            }
-
         }
+
+    }
 
     public static List<String> addToWordList() {
 
         // 2. При начале новой игры случайным образом загадывается слово(Нужен список слов) и (метод который выбирает слово в рандомном порядке)игрок начинает процесс по его отгадыванию.
-        List <String> words = new ArrayList<>();
+        List<String> words = new ArrayList<>();
         words.add("Сова");
         words.add("Папаня");
         words.add("Чуня");
@@ -51,6 +50,7 @@ public class Gallows {
     }
 
     public static String getRandomWord(List<String> word) {
+        Random random = new Random();
         int index = random.nextInt(word.size());
         return word.get(index);
     }
@@ -65,7 +65,7 @@ public class Gallows {
     public static char[] getMask(char[] letter) {
         char[] mask = letter;
         for (int i = 0; i < letter.length; i++) {
-        mask[i] = '_';
+            mask[i] = '_';
         }
         return mask;
     }
