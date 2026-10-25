@@ -13,6 +13,9 @@ public class Gallows {
     private static final Random RANDOM = new Random();
     private static ArrayList<String> words = new ArrayList<>();
 
+    public static ArrayList<String> getWords() {
+        return words;
+    }
 
     public static void startMenu() {
 
@@ -21,35 +24,41 @@ public class Gallows {
         System.out.println(Symbols.MENU);
 
         while (true) {
-                switch (SCANNER.nextLine()) {
-                    case START:
-                        System.out.println("Страт игры");
-                        break;
-                    case EXIT:
-                        System.out.println("Выйти из игры");
-                        break;
-                    default:
-                        System.out.println("Вы ввели некорректное значение");
-                        break;
-                }
-
+            switch (SCANNER.nextLine()) {
+                case START:
+                    System.out.println("Страт игры");
+                    break;
+                case EXIT:
+                    System.out.println("Выйти из игры");
+                    break;
+                default:
+                    System.out.println("Вы ввели некорректное значение");
+                    break;
             }
 
         }
 
-        public static void addWordsArrayList() {
+    }
+
+    public static void wordsArrayList() {
+
+        // 2. При начале новой игры случайным образом загадывается слово(Нужен список слов) и (метод который выбирает слово в рандомном порядке)игрок начинает процесс по его отгадыванию.
+
         words.add("Сова");
         words.add("Папаня");
         words.add("Чуня");
-        }
+
+    }
+
+    public static String randomWords (String words) {
+        String word =
+
+    }
 
 
-        // 2. При начале новой игры случайным образом загадывается слово(Нужен список слов) и (метод котороый выбирает слово в рандомном порядке)игрок начинает процесс по его отгадыванию.
+    // 3. После каждой введенной буквы выводим в консоль счетчик ошибок, текущее состояние виселицы. (Нарисованная ASCll символами)
 
-        // 3. После каждой введенной буквы выводим в консоль счетчик ошибок, текущее состояние виселицы. (Нарисованная ASCll символами)
-
-        // 4. По завершению игры выводим результат (победа или поражение) и возвращает к состоянию 1 - предложение начать новую игру или выйти из приложения.
-
+    // 4. По завершению игры выводим результат (победа или поражение) и возвращает к состоянию 1 - предложение начать новую игру или выйти из приложения.
 
 
 }
