@@ -1,21 +1,18 @@
 package Gallows;
 
-import java.security.PublicKey;
 import java.util.ArrayList;
+import java.util.List;
 import java.util.Random;
 import java.util.Scanner;
+
 
 public class Gallows {
 
     private static final Scanner SCANNER = new Scanner(System.in);
     private static final String START = "1";
     private static final String EXIT = "2";
-    private static final Random RANDOM = new Random();
-    private static ArrayList<String> words = new ArrayList<>();
+    private static Random random = new Random();
 
-    public static ArrayList<String> getWords() {
-        return words;
-    }
 
     public static void startMenu() {
 
@@ -26,6 +23,7 @@ public class Gallows {
         while (true) {
             switch (SCANNER.nextLine()) {
                 case START:
+                    splitWord();
                     System.out.println("Страт игры");
                     break;
                 case EXIT:
@@ -40,21 +38,36 @@ public class Gallows {
 
     }
 
-    public static void wordsArrayList() {
+    public static List<String> addToWordList() {
 
         // 2. При начале новой игры случайным образом загадывается слово(Нужен список слов) и (метод который выбирает слово в рандомном порядке)игрок начинает процесс по его отгадыванию.
-
+        List<String> words = new ArrayList<>();
         words.add("Сова");
         words.add("Папаня");
         words.add("Чуня");
 
+        return words;
     }
 
-    public static String randomWords (String words) {
-        String word =
-
+    public static String getRandomWord(List<String> word) {
+        int index = random.nextInt(word.size());
+        return word.get(index);
     }
 
+
+    public static char[] splitWord() {
+        String words = getRandomWord(addToWordList());
+        char[] letters = words.toCharArray();
+        return letters;
+    }
+
+    public static char[] mask(char[] letter) {
+        char[] letters = splitWord();
+        for (int i = 0; i < letters.length; i++) {
+
+        }
+        return letters;
+    }
 
     // 3. После каждой введенной буквы выводим в консоль счетчик ошибок, текущее состояние виселицы. (Нарисованная ASCll символами)
 
