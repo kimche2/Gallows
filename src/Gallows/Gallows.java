@@ -13,6 +13,9 @@ public class Gallows {
     private static final Random RANDOM = new Random();
     private static ArrayList<String> words = new ArrayList<>();
 
+    public static ArrayList<String> getWords() {
+        return words;
+    }
 
     public static void startMenu() {
 
@@ -39,11 +42,16 @@ public class Gallows {
 
     public static void wordsArrayList() {
 
-        // 2. При начале новой игры случайным образом загадывается слово(Нужен список слов) и (метод котороый выбирает слово в рандомном порядке)игрок начинает процесс по его отгадыванию.
+        // 2. При начале новой игры случайным образом загадывается слово(Нужен список слов) и (метод который выбирает слово в рандомном порядке)игрок начинает процесс по его отгадыванию.
 
         words.add("Сова");
         words.add("Папаня");
         words.add("Чуня");
+
+    }
+
+    public static String randomWords (String words) {
+        String word =
 
     }
 
