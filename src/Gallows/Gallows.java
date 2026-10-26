@@ -22,9 +22,8 @@ public class Gallows {
         while (true) {
             switch (SCANNER.nextLine()) {
                 case START:
-
-                    getMask(splitWord());
                     System.out.println("Страт игры");
+                    openMask(getMask(splitWord()));
                     break;
                 case EXIT:
                     System.out.println("Выйти из игры");
@@ -63,18 +62,23 @@ public class Gallows {
     }
 
     public static char[] getMask(char[] letter) {
-        char[] mask = letter;
         for (int i = 0; i < letter.length; i++) {
-            mask[i] = '_';
+            letter[i] = '_';
         }
-        return mask;
+        return letter;
     }
 
-    // какое-то изменение
+    public static char[] openMask(char[] mask, String words) {
+        char[] word = words.toCharArray();
+        for (int i = 0; i < mask.length; i++) {
 
-    // 3. После каждой введенной буквы выводим в консоль счетчик ошибок, текущее состояние виселицы. (Нарисованная ASCll символами)
-
-    // 4. По завершению игры выводим результат (победа или поражение) и возвращает к состоянию 1 - предложение начать новую игру или выйти из приложения.
+        }
 
 
+        // 3. После каждой введенной буквы выводим в консоль счетчик ошибок, текущее состояние виселицы. (Нарисованная ASCll символами)
+
+        // 4. По завершению игры выводим результат (победа или поражение) и возвращает к состоянию 1 - предложение начать новую игру или выйти из приложения.
+
+        return mask;
+    }
 }
