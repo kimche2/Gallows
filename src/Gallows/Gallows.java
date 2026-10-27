@@ -15,7 +15,7 @@ public class Gallows {
 
     public static void startMenu() {
 
-        // 1. При старте приложение предлагает начать новую игру или выйти из приложения. Нужно добаавить защиту от дурака. Нужно наверное разбить на два метода.
+        // 1. При старте игра предлагает начать новую игру или выйти из игры Нужно добавить защиту от дурака. Нужно наверное разбить на два метода.
 
         System.out.println(Symbols.MENU);
 
@@ -23,7 +23,7 @@ public class Gallows {
             switch (SCANNER.nextLine()) {
                 case START:
                     System.out.println("Страт игры");
-                    openMask(getMask(splitWord()));
+
                     break;
                 case EXIT:
                     System.out.println("Выйти из игры");
@@ -37,9 +37,9 @@ public class Gallows {
 
     }
 
-    public static List<String> addToWordList() {
+    public static List<String> wordList() {
 
-        // 2. При начале новой игры случайным образом загадывается слово(Нужен список слов) и (метод который выбирает слово в рандомном порядке)игрок начинает процесс по его отгадыванию.
+        // Нужен список слов
         List<String> words = new ArrayList<>();
         words.add("Сова");
         words.add("Папаня");
@@ -49,6 +49,7 @@ public class Gallows {
     }
 
     public static String getRandomWord(List<String> word) {
+        // 2. При начале новой игры случайным образом загадывается слово
         Random random = new Random();
         int index = random.nextInt(word.size());
         return word.get(index);
@@ -56,9 +57,8 @@ public class Gallows {
 
 
     public static char[] splitWord() {
-        String words = getRandomWord(addToWordList());
-        char[] letters = words.toCharArray();
-        return letters;
+        String words = getRandomWord(wordList());
+        return words.toCharArray();
     }
 
     public static char[] getMask(char[] letter) {
@@ -68,17 +68,20 @@ public class Gallows {
         return letter;
     }
 
-    public static char[] openMask(char[] mask, String words) {
-        char[] word = words.toCharArray();
+    public static void openMask(char[] mask, String letter, char symbol) {
         for (int i = 0; i < mask.length; i++) {
+            char word = letter.charAt(i);
+            if (word == symbol) {
+                mask[i] = symbol;
 
+            }
         }
-
-
-        // 3. После каждой введенной буквы выводим в консоль счетчик ошибок, текущее состояние виселицы. (Нарисованная ASCll символами)
-
-        // 4. По завершению игры выводим результат (победа или поражение) и возвращает к состоянию 1 - предложение начать новую игру или выйти из приложения.
-
-        return mask;
     }
+
+    // 3. После каждой введенной буквы выводим в консоль счетчик ошибок, текущее состояние виселицы. (Нарисованная ASCll символами)
+
+    // 4. По завершению игры выводим результат (победа или поражение) и возвращает к состоянию 1 - предложение начать новую игру или выйти из приложения.
+
+
+}
 }
