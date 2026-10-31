@@ -11,7 +11,13 @@ public class Gallows {
     private static final Scanner SCANNER = new Scanner(System.in);
     private static final String START = "1";
     private static final String EXIT = "2";
+    private static final int MAX_ERRORS = 7;
+    private static int errorCounter = 0;
 
+
+    public static String enteringLetter() {
+        return SCANNER.nextLine();
+    }
 
     public static void startMenu() {
 
@@ -68,18 +74,27 @@ public class Gallows {
         return letter;
     }
 
-    public static void openMask(char[] mask, String letter, char symbol) {
+    public static void openMask(char[] mask, String secretWord, char symbol) {
         for (int i = 0; i < mask.length; i++) {
-            char word = letter.charAt(i);
+            char word = secretWord.charAt(i);
             if (word == symbol) {
                 mask[i] = symbol;
 
             }
+
         }
     }
 
-    // 3. После каждой введенной буквы выводим в консоль счетчик ошибок, текущее состояние виселицы. (Нарисованная ASCll символами)
+    public static int countMistake(int count) {
+        if (errorCounter < MAX_ERRORS) {
+            errorCounter++;
+            // отображение виселицы, но нужно разбить метод на два или на три .
+        } else if (count == MAX_ERRORS) {
+            System.out.println("Игра окончена!");
+            return count;
+    }
 
+// 3. После каждой введенной буквы выводим в консоль счетчик ошибок, текущее состояние виселицы. (Нарисованная ASCll символами)
     // 4. По завершению игры выводим результат (победа или поражение) и возвращает к состоянию 1 - предложение начать новую игру или выйти из приложения.
 
 
