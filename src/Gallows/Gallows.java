@@ -46,6 +46,7 @@ public class Gallows {
     public static List<String> wordList() {
 
         // Нужен список слов
+        // нужен резервный список слов
         List<String> words = new ArrayList<>();
         words.add("Сова");
         words.add("Папаня");
@@ -88,7 +89,7 @@ public class Gallows {
     public static int countMistake(int count) {
         if (errorCounter < MAX_ERRORS) {
             errorCounter++;
-            // отображение виселицы, но нужно разбить метод на два или на три .
+            // отображение виселицы, но нужно разбить метод на два или на три.
         } else if (count == MAX_ERRORS) {
             System.out.println("Игра окончена!");
             return count;
