@@ -86,18 +86,49 @@ public class Gallows {
         }
     }
 
-    public static int countMistake(int count) {
-        if (errorCounter < MAX_ERRORS) {
-            errorCounter++;
-            // отображение виселицы, но нужно разбить метод на два или на три.
-        } else if (count == MAX_ERRORS) {
-            System.out.println("Игра окончена!");
-            return count;
+    public static void getAllDrawings(int count) {
+            switch (count) {
+                case 0:
+                    System.out.println(Symbols.GALLOWS[0]);
+                    break;
+                case 1:
+                    System.out.println(Symbols.GALLOWS[1]);
+                    break;
+                case 2:
+                    System.out.println(Symbols.GALLOWS[2]);
+                    break;
+                case 3:
+                    System.out.println(Symbols.GALLOWS[3]);
+                    break;
+                case 4:
+                    System.out.println(Symbols.GALLOWS[4]);
+                    break;
+                case 5:
+                    System.out.println(Symbols.GALLOWS[5]);
+                    break;
+                case 6:
+                    System.out.println(Symbols.GALLOWS[6]);
+                    break;
+                case 7:
+                    System.out.println(Symbols.GALLOWS[7]);
+                    break;
+                default:
+                    System.out.println("Нет изображения");
+                    break;
+            }
+
     }
 
-// 3. После каждой введенной буквы выводим в консоль счетчик ошибок, текущее состояние виселицы. (Нарисованная ASCll символами)
+
+    public static int countMistake() {
+        if (errorCounter < MAX_ERRORS) {
+            errorCounter++;
+        }
+        return errorCounter;
+    }
+
+    // 3. После каждой введенной буквы выводим в консоль счетчик ошибок, текущее состояние виселицы. (Нарисованная ASCll символами)
     // 4. По завершению игры выводим результат (победа или поражение) и возвращает к состоянию 1 - предложение начать новую игру или выйти из приложения.
 
+}
 
-}
-}
