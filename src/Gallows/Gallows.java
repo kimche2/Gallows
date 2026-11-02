@@ -87,35 +87,37 @@ public class Gallows {
     }
 
     public static void getAllDrawings(int count) {
-            switch (count) {
-                case 0:
-                    System.out.println(Symbols.GALLOWS[0]);
-                    break;
-                case 1:
-                    System.out.println(Symbols.GALLOWS[1]);
-                    break;
-                case 2:
-                    System.out.println(Symbols.GALLOWS[2]);
-                    break;
-                case 3:
-                    System.out.println(Symbols.GALLOWS[3]);
-                    break;
-                case 4:
-                    System.out.println(Symbols.GALLOWS[4]);
-                    break;
-                case 5:
-                    System.out.println(Symbols.GALLOWS[5]);
-                    break;
-                case 6:
-                    System.out.println(Symbols.GALLOWS[6]);
-                    break;
-                case 7:
-                    System.out.println(Symbols.GALLOWS[7]);
-                    break;
-                default:
-                    System.out.println("Нет изображения");
-                    break;
-            }
+        // 3. После каждой введенной буквы выводим в консоль счетчик ошибок, текущее состояние виселицы. (Нарисованная ASCll символами)
+        switch (count) {
+            case 0:
+                System.out.println(Symbols.GALLOWS[0]);
+                break;
+            case 1:
+                System.out.println(Symbols.GALLOWS[1]);
+                break;
+            case 2:
+                System.out.println(Symbols.GALLOWS[2]);
+                break;
+            case 3:
+                System.out.println(Symbols.GALLOWS[3]);
+                break;
+            case 4:
+                System.out.println(Symbols.GALLOWS[4]);
+                break;
+            case 5:
+                System.out.println(Symbols.GALLOWS[5]);
+                break;
+            case 6:
+                System.out.println(Symbols.GALLOWS[6]);
+                break;
+            case 7:
+                System.out.println(Symbols.GALLOWS[7]);
+                gameLoseRestart();
+                break;
+            default:
+                System.out.println("Нет изображения");
+                break;
+        }
 
     }
 
@@ -127,8 +129,33 @@ public class Gallows {
         return errorCounter;
     }
 
-    // 3. После каждой введенной буквы выводим в консоль счетчик ошибок, текущее состояние виселицы. (Нарисованная ASCll символами)
-    // 4. По завершению игры выводим результат (победа или поражение) и возвращает к состоянию 1 - предложение начать новую игру или выйти из приложения.
+    public static void gameLoseRestart() {
+        // 4. По завершению игры выводим результат (победа или поражение) и возвращает к состоянию 1 - предложение начать новую игру или выйти из приложения.
+        System.out.println("Игра окончена, ты проиграл!");
+        switch (SCANNER.nextLine()) {
+            case "1":
+                System.out.println("1.Рестарт");
+                // gameLoop перезапуск цикла.
+                break;
+            case "2":
+                System.out.println("2.Выход");
+        }
+
+    }
+
+    public static void gameWon () {
+
+    }
+
+    public static void gameLoop() {
+        while (true) {
+            startMenu();
+
+        }
+
+
+    }
 
 }
+
 
